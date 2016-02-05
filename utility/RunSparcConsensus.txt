@@ -1,0 +1,2 @@
+ulimit -n unlimited
+sh ./split_and_run_sparc.sh backbone_raw.fasta DBG2OLC_Consensus_info.txt ctg_reads.fasta ./consensus_dir 2 >cns_log.txt 
