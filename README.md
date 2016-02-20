@@ -121,7 +121,9 @@ ContigTh: default: 1, set to 2 if coverage is ~100x.
 
 These two are used in multiple alignment to remove problematic reads and false contig anchors. When we have high coverage, some more stringent conditions shall be applied as with the suggested parameters.
 
-##Step 3. Call consensus. Install blasr and the consensus module (sparc/pbdagcon). Make sure they are in your path variable. 
+##Step 3. Call consensus. 
+
+Install blasr and the consensus module (sparc/pbdagcon). Make sure they are in your path variable. 
 The input files for consensus are: 
 
 (1) backbone_raw.fasta by DBG2OLC
