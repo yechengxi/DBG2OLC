@@ -17,9 +17,9 @@ g++ -O3 -o DBG2OLC *.cpp
 g++ -O3 -o Sparc *.cpp
 
 
-##Commands for Hybrid Assembly:
+#Commands for Hybrid Assembly:
 
-#Step0. [Optional] Preparations:
+##Step0. [Optional] Preparations:
 
 We have provided code to help you select a subset of the reads:
 
@@ -64,7 +64,7 @@ The N50 is improved to 32kbp in my run.
 
 The output Contigs.txt will be used by DBG2OLC.
 
-Step2. Overlap and layout. Feed DBG2OLC with the contig file in fasta format from the previous step (Contigs.txt in this example). 
+##Step2. Overlap and layout. Feed DBG2OLC with the contig file in fasta format from the previous step (Contigs.txt in this example). 
 
 Download the PacBio reads from:
 
@@ -119,7 +119,7 @@ ContigTh: default: 1, set to 2 if coverage is ~100x.
 
 These two are used in multiple alignment to remove problematic reads and false contig anchors. When we have high coverage, some more stringent conditions shall be applied as with the suggested parameters.
 
-Step 3. Call consensus. Install blasr and the consensus module (sparc/pbdagcon). Make sure they are in your path variable. 
+##Step 3. Call consensus. Install blasr and the consensus module (sparc/pbdagcon). Make sure they are in your path variable. 
 The input files for consensus are: 
 
 (1) backbone_raw.fasta by DBG2OLC
@@ -132,15 +132,15 @@ The input files for consensus are:
 
 You can check the N50 of (1) to see if you are satisfied, otherwise keep tuning and don¡¯t proceed.
 
-# this is to concatenate the contigs and the raw reads for consensus
+// this is to concatenate the contigs and the raw reads for consensus
 
 cat Contigs.txt pb_reads.fasta > ctg_pb.fasta
 
-# we need to open a lot of files to distribute the above file into lots of smaller files
+// we need to open a lot of files to distribute the above file into lots of smaller files
 
 ulimit -n unlimited
 
-#run the consensus scripts
+//run the consensus scripts
 
 sh ./split_and_run_sparc.sh backbone_raw.fasta DBG2OLC_Consensus_info.txt ctg_reads.fasta ./consensus_dir 2 >cns_log.txt
 
