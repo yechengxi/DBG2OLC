@@ -179,9 +179,9 @@ There are four critical parameters:
 
 k: k-mer length (max size: 31).
 
-KmerCovTh: # k-mer matches for a contig to be regarded as a genuine anchor, suggest 0-1.
+KmerCovTh: explained above, suggest 0-1.
 
-MinOverlap: # ¡®consistent¡¯ k-mers between each pair of reads to be considered to overlap.
+MinOverlap: explained before.
 
 PathCovTh: the minimum occurrence for a compressed read for a compressed read to be used, suggest  1-3.
 
