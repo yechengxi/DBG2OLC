@@ -17,9 +17,9 @@ g++ -O3 -o DBG2OLC *.cpp
 g++ -O3 -o Sparc *.cpp
 
 
-Commands for Hybrid Assembly:
+##Commands for Hybrid Assembly:
 
-Step0. [Optional] Preparations:
+#Step0. [Optional] Preparations:
 
 We have provided code to help you select a subset of the reads:
 
@@ -130,7 +130,7 @@ The input files for consensus are:
 
 (4) PacBio reads (in fasta format)
 
-You can check the N50 of (1) to see if you are satisfied, otherwise keep tuning and don¡¯t proceed.
+You can check the N50 of (1) to see if you are satisfied, otherwise keep tuning and donÂ¡Â¯t proceed.
 
 # this is to concatenate the contigs and the raw reads for consensus
 
@@ -177,7 +177,7 @@ k: k-mer length (max size: 31).
 
 KmerCovTh: # k-mer matches for a contig to be regarded as a genuine anchor, suggest 0-1.
 
-MinOverlap: # ¡®consistent¡¯ k-mers between each pair of reads to be considered to overlap.
+MinOverlap: # Â¡Â®consistentÂ¡Â¯ k-mers between each pair of reads to be considered to overlap.
 
 PathCovTh: the minimum occurrence for a compressed read for a compressed read to be used, suggest  1-3.
 
