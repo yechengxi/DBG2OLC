@@ -55,7 +55,7 @@ Normally with ~50x coverage, NodeCovTh 1 EdgeCovTh 0 can produce nice results.
 
 In this test run, the N50 is 29 kbp. As we have selected the beginning part of the sequencing file, which can be of lower quality, the next step may help to improve the assembly quality.
 
-[Miscellaneous]
+##[Miscellaneous]
 For other more complex genomes or a different coverage, the first run may not generate the best result. The previous computations can be loaded and two parameters can be fine-tuned to construct a cleaner de Bruijn/ k-mer graph:
 
 ./SparseAssembler LD 1 NodeCovTh 2 EdgeCovTh 1 k 51 g 15 GS 12000000 f ../Illumina_data/Illumina_50x.fastq
@@ -64,7 +64,9 @@ The N50 is improved to 32kbp in my run.
 
 The output Contigs.txt will be used by DBG2OLC.
 
-##Step2. Overlap and layout. Feed DBG2OLC with the contig file in fasta format from the previous step (Contigs.txt in this example). 
+##Step2. Overlap and layout.
+
+Feed DBG2OLC with the contig file in fasta format from the previous step (Contigs.txt in this example). 
 
 Download the PacBio reads from:
 
@@ -91,7 +93,7 @@ KmerCovTh: fixed k-mer matching threshold. If M < KmerCovTh, this contig cannot 
 MinOverlap: minimum overlap score between a pair of long reads.
 For each pair of long reads, an overlap score is calculated by aligning the compressed reads and score with the matching k-mers.
  
-[Miscellaneous]
+##[Miscellaneous]
 
 At this point, the parameters may be fine-tuned to get better performance. As with SparseAssembler, LD 1 can be used to load the compressed reads/anchored reads. 
 
