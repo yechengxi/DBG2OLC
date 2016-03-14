@@ -1,7 +1,8 @@
-DBG2OLC: Efficient Assembly of Large Genomes Using Long Erroneous Reads of the Third Generation Sequencing Technologies
+#DBG2OLC: Efficient Assembly of Large Genomes Using Long Erroneous Reads of the Third Generation Sequencing Technologies
 
-http://arxiv.org/abs/1410.2801
 =======
+http://arxiv.org/abs/1410.2801
+
 The manual can be downloaded from:
 
 https://github.com/yechengxi/DBG2OLC/raw/master/Manual.docx
