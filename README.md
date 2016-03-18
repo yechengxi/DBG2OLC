@@ -151,7 +151,7 @@ ulimit -n unlimited
 
 sh ./split_and_run_sparc.sh backbone_raw.fasta DBG2OLC_Consensus_info.txt ctg_reads.fasta ./consensus_dir 2 >cns_log.txt
 
-Commands used to assemble other genomes:
+#Commands used to assemble other genomes:
 
 The A. thaliana Ler-0 dataset:
 
@@ -170,7 +170,7 @@ Longest 30x PacBio reads:
 ./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs Contigs.txt f 30x.fasta >DBG2OLC_LOG.txt
 
 
-Commands for Non-hybrid NGS Assembly:
+#Commands for Non-hybrid NGS Assembly:
 
 
 The program command is slightly different for purly Illumina reads assembly.  
