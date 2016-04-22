@@ -149,7 +149,7 @@ ulimit -n unlimited
 
 //run the consensus scripts
 
-sh ./split_and_run_sparc.sh backbone_raw.fasta DBG2OLC_Consensus_info.txt ctg_reads.fasta ./consensus_dir 2 >cns_log.txt
+sh ./split_and_run_sparc.sh backbone_raw.fasta DBG2OLC_Consensus_info.txt ctg_pb.fasta ./consensus_dir 2 >cns_log.txt
 
 #Commands used to assemble other genomes:
 
