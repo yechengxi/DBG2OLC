@@ -52,6 +52,10 @@ Download the Illumina reads from
 
 ftp://qb.cshl.edu/schatz/ectools/w303/Illumina_500bp_2x300_R1.fastq.gz
 
+or here:
+
+http://pan.baidu.com/s/1sk9bEnN
+
 Normally with ~50x coverage, NodeCovTh 1 EdgeCovTh 0 can produce nice results.
 
 ./SparseAssembler LD 0 k 51 g 15 NodeCovTh 1 EdgeCovTh 0 GS 12000000 f ../Illumina_data/Illumina_50x.fastq
@@ -74,6 +78,10 @@ Feed DBG2OLC with the contig file in fasta format from the previous step (Contig
 Download the PacBio reads from:
 
 ftp://qb.cshl.edu/schatz/ectools/w303/Pacbio.fasta.gz
+
+or here:
+
+http://pan.baidu.com/s/1sk9bEnN
 
 The basic command format of DBG2OLC is:
 
