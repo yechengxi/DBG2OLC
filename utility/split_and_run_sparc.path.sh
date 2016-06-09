@@ -14,7 +14,7 @@ reads_fasta=$3
 split_dir=$4
 iterations=$5
 
-if [ $# -eq 6]; 
+if [ $# -eq 6 ]; 
  then splitversion=$6
 else
  splitversion=1
