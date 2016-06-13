@@ -3,7 +3,7 @@
 if [ $# -eq 0 ]; then
  echo "
  ###
- # USAGE: split_and_run_pbdagcon.sh [BACKBONE_FASTA] [CONSENSUS_FASTA] [READS_FASTA] [OUTPUT_DIR][split_reads_by_backbone_version 1,2,3 - 1 by default]
+ # USAGE: split_and_run_pbdagcon.sh [BACKBONE_FASTA] [CONSENSUS_FASTA] [READS_FASTA] [OUTPUT_DIR][split_reads_by_backbone_version 1,2,3 - 3 by default]
  ###
  ## split_reads_by_backbone_version
  ## 1 = split_reads_by_backbone.py -- can cause "Too many files open" error. Good for small genomes and/or assemblies with few contigs.
@@ -22,7 +22,7 @@ split_dir=$4
 if [ $# -eq 6 ]; 
  then splitversion=$6
 else
- splitversion=1
+ splitversion=3
 fi
 
 
