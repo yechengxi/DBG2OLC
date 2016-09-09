@@ -2,7 +2,7 @@
 
 ###
 # USAGE: ./split_and_run_sparc.sh [BACKBONE_FASTA] [CONSENSUS_FASTA] [READS_FASTA] [OUTPUT_DIR] [ITERATIONS] ###
-f [ $# -eq 0 ]; then
+if [ $# -eq 0 ]; then
  echo "
  # USAGE: split_and_run_sparc.sh [BACKBONE_FASTA] [CONSENSUS_FASTA] [READS_FASTA] [OUTPUT_DIR] [ITERATIONS] [split_reads_by_backbone_version 1,2,3 - 3 by default]###
  ## split_reads_by_backbone_version
