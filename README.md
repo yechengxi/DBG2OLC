@@ -1,7 +1,7 @@
 #DBG2OLC:Efficient Assembly of Large Genomes Using Long Erroneous Reads of the Third Generation Sequencing Technologies
 =======
 
-Our work is accepted in Scientific Reports: 
+Our work is published in Scientific Reports: 
 
 Ye, C. et al. DBG2OLC: Efficient Assembly of Large Genomes Using Long Erroneous Reads of the Third Generation Sequencing Technologies. Sci. Rep. 6, 31900; doi: 10.1038/srep31900 (2016).
 
