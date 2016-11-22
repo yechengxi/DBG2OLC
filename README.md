@@ -26,6 +26,8 @@ g++ -O3 -o Sparc *.cpp
 
 #Commands for Hybrid Assembly:
 
+It is important to follow the steps before you invent your own pipeline. As combining DBG2OLC with other software tools may produce worse results. The reason is that many existing assembly/error correction tools introduce errors.  
+
 ##Step0. [Optional] Preparations:
 
 We have provided code to help you select a subset of the reads:
