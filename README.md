@@ -220,4 +220,4 @@ There are many reads correction techniques available for 3GS assembly. Not all o
 
 ## Illumina data assembly
 
-Most short read assemblers introduce structural errors to reach higher contiguity. These errors can lead to poor final results. DBG2OLC requires accurate short read assembly to start with. Other than SparseAssembler, a few reported successful assemblers are: Platanu, Meraculous.   
+Most short read assemblers introduce structural errors to reach higher contiguity. These errors can lead to poor final results. DBG2OLC requires accurate short read assembly to start with. Other than SparseAssembler, a few reported successful assemblers are: Platanus, Meraculous.   
