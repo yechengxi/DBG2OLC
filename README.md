@@ -208,7 +208,7 @@ The command we used for E. coli Illumina Miseq dataset:
 
 ./DBG2OLC k 31 PathCovTh 2 MinLen 50 MinOverlap 31 Contigs Contigs.txt KmerCovTh 0 f reads.fasta 
 
-#Known issues
+#Known issues:
 
 ## Compilation
 
