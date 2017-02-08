@@ -210,14 +210,14 @@ The command we used for E. coli Illumina Miseq dataset:
 
 #Known issues
 
-1. Compilation
+## Compilation
 
 If you compile DBG2OLC in your environment and it gets stuck when running, try the precompiled version we included.
 
-2. Preprocessing
+## Preprocessing
 
 There are many reads correction techniques available for 3GS assembly. Not all of them are doing the right job. Correction may lead to worse results as structural errors may be introduced. So if you decide to use a correction algorithm, please compare results with/without correction. 
 
-3. Illumina data assembly
+## Illumina data assembly
 
 Most short read assemblers introduce structural errors to reach higher contiguity. These errors can lead to poor final results. DBG2OLC requires accurate short read assembly to start with. Other than SparseAssembler, a few reported successful assemblers are: Platanu, Meraculous.   
