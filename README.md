@@ -95,7 +95,7 @@ The basic command format of DBG2OLC is:
 
 In the following example, the first 20x PacBio reads are extracted from the abovementioned file and we can assemble with:
 
-./DBG2OLC k 17 AdaptiveTh 0.0001 KmerCovTh 2 MinOverlap 20 RemoveChimera 1 Contigs Contigs.txt f ../Pacbio_data/Pacbio _20x.fasta 
+./DBG2OLC k 17 AdaptiveTh 0.0001 KmerCovTh 2 MinOverlap 20 RemoveChimera 1 Contigs Contigs.txt f ../Pacbio_data/Pacbio_20x.fasta 
 
 In our test run, the N50 is 583kbp.
 
@@ -221,3 +221,21 @@ There are many reads correction techniques available for 3GS assembly. Not all o
 ## Illumina data assembly
 
 Most short read assemblers introduce structural errors to reach higher contiguity. These errors can lead to poor final results. DBG2OLC requires accurate short read assembly to start with. Other than SparseAssembler, a few reported successful assemblers are: Platanus, Meraculous.   
+
+## Large genomes
+
+DBG2OLC is a single threaded program. The most time consuming step is to calculate the compressed reads. If you are trying to assemble a large genome, below is an easy way to speed up:  
+(1) Split the 3GS reads into several batches.  
+(2) Run DBG2OLC with the same set of parameters and Illumina Contigs in each of these directories.
+In dir1:  
+./DBG2OLC k 17 AdaptiveTh 0.005 KmerCovTh 2 MinOverlap 20 RemoveChimera 1 Contigs ../Contigs.txt f ../Pacbio_data/Pacbio_batch1.fasta  
+In dir2:  
+./DBG2OLC k 17 AdaptiveTh 0.005 KmerCovTh 2 MinOverlap 20 RemoveChimera 1 Contigs ../Contigs.txt f ../Pacbio_data/Pacbio_batch2.fasta   
+...  
+(3) Move all the compressed reads (filenames starting with "ReadsInfoFrom\_") into one folder (say dir3).
+
+(4) Rurun DBG2OLC with such modifications: "LD 1" to and include all the compressed reads.
+
+In dir3:
+
+./DBG2OLC k 17 LD 1 AdaptiveTh 0.01 KmerCovTh 2 MinOverlap 30 RemoveChimera 1 Contigs ../Contigs.txt f ../Pacbio_data/Pacbio_batch1.fasta f ../Pacbio_data/Pacbio_batch2.fasta   
