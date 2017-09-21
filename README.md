@@ -1,4 +1,4 @@
-#DBG2OLC:Efficient Assembly of Large Genomes Using Long Erroneous Reads of the Third Generation Sequencing Technologies
+# DBG2OLC:Efficient Assembly of Large Genomes Using Long Erroneous Reads of the Third Generation Sequencing Technologies
 =======
 
 Our work is published in Scientific Reports: 
@@ -24,11 +24,11 @@ g++ -O3 -o DBG2OLC *.cpp
 g++ -O3 -o Sparc *.cpp
 
 
-#Commands for Hybrid Assembly:
+# Commands for Hybrid Assembly:
 
 It is important to follow the steps before you invent your own pipeline. As combining DBG2OLC with other software tools may produce worse results. The reason is that many existing assembly/error correction tools introduce errors.  
 
-##Step0. [Optional] Preparations:
+## Step0. [Optional] Preparations:
 
 We have provided code to help you select a subset of the reads:
 
@@ -68,7 +68,7 @@ Normally with ~50x coverage, NodeCovTh 1 EdgeCovTh 0 can produce nice results.
 
 In this test run, the N50 is 29 kbp. As we have selected the beginning part of the sequencing file, which can be of lower quality, the next step may help to improve the assembly quality.
 
-##[Miscellaneous]
+## [Miscellaneous]
 For other more complex genomes or a different coverage, the first run may not generate the best result. The previous computations can be loaded and two parameters can be fine-tuned to construct a cleaner de Bruijn/ k-mer graph:
 
 ./SparseAssembler LD 1 NodeCovTh 2 EdgeCovTh 1 k 51 g 15 GS 12000000 f ../Illumina_data/Illumina_50x.fastq
@@ -77,7 +77,7 @@ The N50 is improved to 32kbp in my run.
 
 The output Contigs.txt will be used by DBG2OLC.
 
-##Step2. Overlap and layout.
+## Step2. Overlap and layout.
 
 Feed DBG2OLC with the contig file in fasta format from the previous step (Contigs.txt in this example). 
 
@@ -110,7 +110,7 @@ KmerCovTh: fixed k-mer matching threshold. If M < KmerCovTh, this contig cannot 
 MinOverlap: minimum overlap score between a pair of long reads.
 For each pair of long reads, an overlap score is calculated by aligning the compressed reads and score with the matching k-mers.
  
-##[Miscellaneous]
+## [Miscellaneous]
 
 At this point, the parameters may be fine-tuned to get better performance. As with SparseAssembler, LD 1 can be used to load the compressed reads/anchored reads. 
 
@@ -138,7 +138,7 @@ ContigTh: default: 1, set to 2 if coverage is ~100x.
 
 These two are used in multiple alignment to remove problematic reads and false contig anchors. When we have high coverage, some more stringent conditions shall be applied as with the suggested parameters.
 
-##Step 3. Call consensus. 
+## Step 3. Call consensus. 
 
 Install blasr and the consensus module (sparc/pbdagcon). Make sure they are in your path variable. 
 The input files for consensus are: 
@@ -165,7 +165,7 @@ ulimit -n unlimited
 
 sh ./split_and_run_sparc.sh backbone_raw.fasta DBG2OLC_Consensus_info.txt ctg_pb.fasta ./consensus_dir 2 >cns_log.txt
 
-#Commands used to assemble other genomes:
+# Commands used to assemble other genomes:
 
 The A. thaliana Ler-0 dataset:
 
@@ -184,7 +184,7 @@ Longest 30x PacBio reads:
 ./DBG2OLC k 17 KmerCovTh 2 MinOverlap 20 AdaptiveTh 0.01 RemoveChimera 1 Contigs Contigs.txt f 30x.fasta >DBG2OLC_LOG.txt
 
 
-#Commands for Non-hybrid NGS Assembly:
+# Commands for Non-hybrid NGS Assembly:
 
 
 The program command is slightly different for purly Illumina reads assembly.  
@@ -208,7 +208,7 @@ The command we used for E. coli Illumina Miseq dataset:
 
 ./DBG2OLC k 31 PathCovTh 2 MinLen 50 MinOverlap 31 Contigs Contigs.txt KmerCovTh 0 f reads.fasta 
 
-#Known issues:
+# Known issues:
 
 ## Compilation
 
