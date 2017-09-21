@@ -222,6 +222,18 @@ There are many reads correction techniques available for 3GS assembly. Not all o
 
 Most short read assemblers introduce structural errors to reach higher contiguity. These errors can lead to poor final results. DBG2OLC requires accurate short read assembly to start with. Other than SparseAssembler, a few reported successful assemblers are: Platanus, Meraculous.   
 
+## Calling Blasr in the Consensus Step
+
+Since version 5.1, blasr need double dash "--" for some options : 
+"In release v5.1 of BLASR, command-line options will use the single dash/double dash convention:
+Character options are preceded by a single dash. (Example: -v)
+Word options are preceded by a double dash. (Example: --verbose)"
+
+So if you are using the latest version of blasr, the blasr calling command in split_and_run_sparc.sh (or other similar scripts) should be modified to: 
+
+cmd+="blasr --nproc 64 ${split_dir}/${chunk}.reads.fasta ${split_dir}/${chunk}.fasta --bestn 1 -m 5 --minMatch 19 --out ${split_dir}/${chunk}.mapped.m5; 
+
+
 ## Large genomes
 
 DBG2OLC is a single threaded program. The most time consuming step is to calculate the compressed reads. If you are trying to assemble a large genome, below is an easy way to speed up:  
@@ -234,7 +246,7 @@ In dir2:
 ...  
 (3) Move all the compressed reads (filenames starting with "ReadsInfoFrom\_") into one folder (say dir3).
 
-(4) Rurun DBG2OLC with such modifications: "LD 1" to and include all the compressed reads.
+(4) Rerun DBG2OLC with such modifications: "LD 1" to and include all the compressed reads.
 
 In dir3:
 
