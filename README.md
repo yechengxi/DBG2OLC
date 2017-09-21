@@ -46,7 +46,9 @@ And you can use the following command to evaluate an assembly.
 
 The program will generate two txt files containing essential statistics about your assembly.
 
-Step1. Use an accurate DBG-assembler to construct short but accurate contigs. Please make sure they are the raw DBG contigs without using repeat resolving techniques such as gap closing or scaffolding. Otherwise you may have poor final results due to the errors introduced by the heuristics used in short read assembly pipelines.
+## Step1. Use an accurate DBG-assembler to construct short but accurate contigs. 
+
+Please make sure they are the raw DBG contigs without using repeat resolving techniques such as gap closing or scaffolding. Otherwise you may have poor final results due to the errors introduced by the heuristics used in short read assembly pipelines.
 
 SparseAssembler command format:
 
