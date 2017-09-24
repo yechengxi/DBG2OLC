@@ -246,7 +246,7 @@ In dir1:
 In dir2:  
 ./DBG2OLC k 17 AdaptiveTh 0.005 KmerCovTh 2 MinOverlap 20 RemoveChimera 1 Contigs ../Contigs.txt f ../Pacbio_data/Pacbio_batch2.fasta   
 ...  
-(3) Move all the compressed reads (filenames starting with "ReadsInfoFrom\_") into one folder (say dir3).
+(3) Move all the compressed reads (filenames starting with "ReadsInfoFrom\_") into one folder (say dir3). If you happen to put the raw PacBio reads into separate folders, put them also in dir3 or make sure they can be located in the command when you make the final call in step 4.
 
 (4) Rerun DBG2OLC with such modifications: "LD 1" to and include all the compressed reads.
 
