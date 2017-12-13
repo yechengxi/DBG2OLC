@@ -4494,6 +4494,12 @@ void Create_Local_Contig_Kmer_Index(contigs_info *contigs_info, align_info* alig
 			aligned_contig = compressed_read1[i].contig_no;
 		}
 	}
+	if (aligned_contig == 0 && LongReadContigIndex1.CTG2LR[aligned_contig].size() == 0)
+	{
+	        FreeSparseKmerGraph(&ht);
+		return
+	}
+
 	int ReadCoord1 = LongReadContigIndex1.CTG2LR[aligned_contig][LongReadContigIndex1.CTG2LR[aligned_contig].size() / 2];
 	int ContigCoord1 = LongReadContigIndex1.CTG2Coords[aligned_contig][ReadCoord1];
 	int mean_offset1;
