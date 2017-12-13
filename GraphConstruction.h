@@ -4497,7 +4497,7 @@ void Create_Local_Contig_Kmer_Index(contigs_info *contigs_info, align_info* alig
 	if (aligned_contig == 0 && LongReadContigIndex1.CTG2LR[aligned_contig].size() == 0)
 	{
 	        FreeSparseKmerGraph(&ht);
-		return
+		return;
 	}
 
 	int ReadCoord1 = LongReadContigIndex1.CTG2LR[aligned_contig][LongReadContigIndex1.CTG2LR[aligned_contig].size() / 2];
