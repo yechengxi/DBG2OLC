@@ -113,18 +113,10 @@ def main():
             for backbone in reads_to_backbone[tuple[0]]:
                 id = backbone_to_id[backbone]
 
-                #print tuple[0] + '\t-->\t' + options.output_dir + '/' + str(id) + '.reads.fasta'
-
-                if id in file_pointers_dict:
-                    file_pointers_dict[id].write('>' + tuple[0] + '\n' + tuple[1] + '\n')
-
-                else:
-                    new_fp = open(options.output_dir + '/' + str(id) + '.reads.fasta', 'w')
-                    file_pointers_dict[id] = new_fp
-                    file_pointers_dict[id].write('>' + tuple[0] + '\n' + tuple[1] + '\n')
-        #else:
-        #    print 'MISSING\t' + tuple[0]
-
+                new_fp = open(options.output_dir + '/' + str(id) + '.reads.fasta', 'a')
+                new_fp.write('>' + tuple[0] + '\n' + tuple[1] + '\n')
+                new_fp.close()
+                
         tuple = pf.getRecord()
 
 if __name__ == '__main__':
