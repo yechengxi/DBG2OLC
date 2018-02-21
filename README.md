@@ -15,12 +15,14 @@ To use precompiled versions,please go to:
 
 https://github.com/yechengxi/DBG2OLC/tree/master/compiled
 
-To compile, download the source code of each program into separate folders and use: 
+To compile, download the source code of each program into separate folders and use:  
 
-g++ -O3 -o SparseAssebmler *.cpp
+g++ -O3 -o DBG2OLC *.cpp  
 
-g++ -O3 -o DBG2OLC *.cpp
+https://github.com/yechengxi/SparseAssembler  
+g++ -O3 -o SparseAssebmler *.cpp  
 
+https://github.com/yechengxi/Sparc/blob/master/README.md  
 g++ -O3 -o Sparc *.cpp
 
 
