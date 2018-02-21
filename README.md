@@ -22,7 +22,7 @@ g++ -O3 -o DBG2OLC *.cpp
 https://github.com/yechengxi/SparseAssembler  
 g++ -O3 -o SparseAssebmler *.cpp  
 
-https://github.com/yechengxi/Sparc/blob/master/README.md  
+https://github.com/yechengxi/Sparc   
 g++ -O3 -o Sparc *.cpp
 
 
