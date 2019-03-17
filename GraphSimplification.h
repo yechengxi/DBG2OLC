@@ -831,7 +831,7 @@ void aggressive_cleaning(reads_info *reads_info )
 			//cout << i << endl;
 		}
 	}
-	cout << n_removed_nodes << " bad nodes removed in aggrassive cleaning." << endl;
+	cout << n_removed_nodes << " bad nodes removed in aggressive cleaning." << endl;
 	//cout << n_removed_nodes2 << " nodes removed because both strands are used." << endl;
 }
 

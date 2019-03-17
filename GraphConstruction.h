@@ -4434,6 +4434,7 @@ void Create_Local_Contig_Kmer_Index(contigs_info *contigs_info, align_info* alig
 
 	*/
 
+
 	if (align_info0.SparseAlign)
 	{
 		sparse_semi_global_align(contigs_info, compressed_read1, compressed_read2, &align_matrices, &align_info0);
@@ -4494,12 +4495,6 @@ void Create_Local_Contig_Kmer_Index(contigs_info *contigs_info, align_info* alig
 			aligned_contig = compressed_read1[i].contig_no;
 		}
 	}
-	if (aligned_contig == 0 && LongReadContigIndex1.CTG2LR[aligned_contig].size() == 0)
-	{
-	        FreeSparseKmerGraph(&ht);
-		return;
-	}
-
 	int ReadCoord1 = LongReadContigIndex1.CTG2LR[aligned_contig][LongReadContigIndex1.CTG2LR[aligned_contig].size() / 2];
 	int ContigCoord1 = LongReadContigIndex1.CTG2Coords[aligned_contig][ReadCoord1];
 	int mean_offset1;
@@ -4692,6 +4687,8 @@ void ConstructBackbone(reads_info *reads_info, contigs_info *contigs_info, align
 		}
 		string backbone_raw, backbone_corr,backbone_raw_new;
 		o_layout_coords << ">Backbone_" << n_backbone << endl;
+
+		
 		//if (n_backbone>=5084)
 		for (int r = 0; r < n_reads; ++r)
 		{

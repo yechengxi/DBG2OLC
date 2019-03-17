@@ -17,8 +17,9 @@ using namespace std;
 
 struct align_matrices
 {
-	int score[152][152];
-	int16_t path[152][152];
+	//modified on 20190315 to allow aligning ultra long reads
+	int score[252][252];
+	int16_t path[252][252];
 };
 
 
@@ -359,6 +360,7 @@ bool sparse_semi_global_align(contigs_info *contigs_info, vector<Coord_CTG_Cov> 
 
 	if (ref_compressed.size() > max_len || qry_compressed.size() > max_len)
 	{
+		cout << "Error! Maximal alignment length reached. max_len: " << max_len << endl;
 		return 0;// no result
 	}
 
@@ -841,8 +843,10 @@ bool sparse_semi_global_align(contigs_info *contigs_info, vector<Coord_CTG_Cov> 
 	}
 	int ext_len = align_info->right_ext.size();
 	align_info->right_dist.resize(ext_len);
+	qry_sz = qry.size();//newly added 20190315
 	if (ext_len<qry_sz)
 	{
+		
 		for (int i = 0; i < ext_len; ++i)
 		{
 			int dist = (qry[qry_sz - ext_len + i].coord2 - qry[qry_sz - ext_len - 1 + i].coord2);

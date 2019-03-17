@@ -585,6 +585,7 @@ int main(int argc, char* argv[])
 	}
 
 
+	
 	contigs_info.contig_sz_vt.clear();
 	contigs_info.contig_sz_vt.push_back(0);
 	int tot_ctgs = 0, ContigLen = 0;
@@ -604,6 +605,10 @@ int main(int argc, char* argv[])
 	}
 	contigs_info.total_contigs = tot_ctgs;
 	ctgs_in.close();
+
+	
+
+
 
 	/*
 	LoadRefinedContigGraph(&contigs_info,contig_graph_filename);
@@ -897,7 +902,7 @@ int main(int argc, char* argv[])
 	align_info.min_extension_FR = MinOverlap * min_ext;
 	align_info.mm_ratio = mm_ratio;// 0.4;//0.4
 	align_info.mm_penalty = mm_penalty;// 0.
-	align_info.max_len = 150;
+	align_info.max_len = 250;//modified on 20190315 to allow aligning ultra long reads
 	align_info.band_width = 20;
 	reads_info.K_size = K_size;
 	reads_info.CloseGaps = CloseGaps;
@@ -1222,6 +1227,8 @@ int main(int argc, char* argv[])
 			
 			string lr_name = "DBG2OLC_";;
 			//LoadSparseOverlapGraph(&contigs_info, &reads_info, lr_name);
+
+			
 			cout << "Loading contigs." << endl;
 			ctgs_in.close();
 			ctgs_in.open(ctg_filename.c_str());
@@ -1251,6 +1258,7 @@ int main(int argc, char* argv[])
 
 			}
 			ctgs_in.close();
+			
 			cout << "Construct backbone sequence." << endl;
 
 			ConstructBackbone(&reads_info, &contigs_info, &align_info);
