@@ -12,11 +12,11 @@ iterations=$5
 
 
 #clean the directory first
-rm ${split_dir}/backbone-*
+find ${split_dir} -name "backbone-*" -delete
 
-./split_reads_by_backbone.py -b ${backbone_fasta} -o ${split_dir} -r ${reads_fasta} -c ${consensus_fasta} 
+split_reads_by_backbone.py -b ${backbone_fasta} -o ${split_dir} -r ${reads_fasta} -c ${consensus_fasta}
 
-for file in $(ls ${split_dir}/*.reads.fasta); do
+for file in $(find ${split_dir} -name "*.reads.fasta"); do
     chunk=`basename $file .reads.fasta`
 
     cmd=""
@@ -24,11 +24,11 @@ for file in $(ls ${split_dir}/*.reads.fasta); do
 
         #echo $iter
 
-        cmd+="blasr -nproc 64 ${split_dir}/${chunk}.reads.fasta ${split_dir}/${chunk}.fasta -bestn 1 -m 5 -minMatch 19 -out ${split_dir}/${chunk}.mapped.m5; "
+        cmd+="blasr --nproc 64 ${split_dir}/${chunk}.reads.fasta ${split_dir}/${chunk}.fasta --bestn 1 -m 5 --minMatch 19 --out ${split_dir}/${chunk}.mapped.m5; "
 
-        cmd+="./Sparc m ${split_dir}/${chunk}.mapped.m5 b ${split_dir}/${chunk}.fasta k 1 c 2 g 1 HQ_Prefix Contig boost 5 t 0.2 o ${split_dir}/${chunk}; "
+        cmd+="Sparc m ${split_dir}/${chunk}.mapped.m5 b ${split_dir}/${chunk}.fasta k 1 c 2 g 1 HQ_Prefix Contig boost 5 t 0.2 o ${split_dir}/${chunk}; "
 
-        if [ ${iter} -lt ${iterations} ]
+        if [[ ${iter} -lt ${iterations} ]]
         then
         #rename
         cmd+="mv ${split_dir}/${chunk}.consensus.fasta ${split_dir}/${chunk}.fasta;"
@@ -50,6 +50,7 @@ for file in $(ls ${split_dir}/*.reads.fasta); do
 
 done
 
-cmd="cat ${split_dir}/*.consensus.fasta > ${split_dir}/final_assembly.fasta"
-echo=$cmd
-eval $cmd
+for confile in $(find ${split_dir} -name "*.consensus.fasta"); do
+	cmd="cat ${confile};"
+	eval $cmd
+done > ${split_dir}/final_assembly.fasta
