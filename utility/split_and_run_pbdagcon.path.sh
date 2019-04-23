@@ -53,6 +53,5 @@ ${split_dir}/${chunk}.mapped.m5"
 
 done
 
-cmd="cat ${split_dir}/*.consensus.fasta > ${split_dir}/final_assembly.fasta"
-echo=$cmd
-eval $cmd
+echo="merging consensus reads to ${split_dir}/final_assembly.fasta"
+for f in ${split_dir}/*.consensus.fasta; do cat "$f" >> ${split_dir}/final_assembly.fasta; done
