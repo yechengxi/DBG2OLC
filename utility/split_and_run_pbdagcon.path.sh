@@ -41,9 +41,7 @@ fi
 
 for file in $(find ${split_dir} -name "*.reads.fasta"); do
     chunk=`basename $file .reads.fasta`
-    cmd="blasr --nproc 64 ${split_dir}/${chunk}.reads.fasta 
-${split_dir}/${chunk}.fasta --bestn 1 -m 5 --minMatch 19 --out 
-${split_dir}/${chunk}.mapped.m5"
+    cmd="blasr --nproc 64 ${split_dir}/${chunk}.reads.fasta ${split_dir}/${chunk}.fasta --bestn 1 -m 5 --minMatch 19 --out ${split_dir}/${chunk}.mapped.m5"
     echo $cmd
     eval $cmd
 
