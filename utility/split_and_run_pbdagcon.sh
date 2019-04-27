@@ -10,11 +10,11 @@ reads_fasta=$3
 split_dir=$4
 
 #clear the directory first
-rm ${split_dir}/backbone-*
+rm -rf ${split_dir}/backbone-*
 
 ./split_reads_by_backbone.py -b ${backbone_fasta} -o ${split_dir} -r ${reads_fasta} -c ${consensus_fasta} 
 
-for file in $(ls ${split_dir}/*.reads.fasta); do
+for file in $(find ${split_dir} -name "*.reads.fasta"); do
     chunk=`basename $file .reads.fasta`
     #echo $chunk
     cmd="blasr -nproc 64 ${split_dir}/${chunk}.reads.fasta ${split_dir}/${chunk}.fasta -bestn 1 -m 5 -minMatch 19 -out ${split_dir}/${chunk}.mapped.m5"
@@ -27,6 +27,5 @@ for file in $(ls ${split_dir}/*.reads.fasta); do
 
 done
 
-cmd="cat ${split_dir}/*.consensus.fasta > ${split_dir}/final_assembly.fasta"
-echo=$cmd
-eval $cmd
+echo="merging consensus reads to ${split_dir}/final_assembly.fasta"
+for f in ${split_dir}/*.consensus.fasta; do cat "$f" >> ${split_dir}/final_assembly.fasta; done
